@@ -103,3 +103,4 @@ C:\Users\TEST\QueueApp\bin\Debug\net10.0-windows\wwwroot\index.html
 C:\Users\TEST\QueueApp\bin\Debug\net10.0-windows\Microsoft.Extensions.Diagnostics.dll
 C:\Users\TEST\QueueApp\bin\Debug\net10.0-windows\Microsoft.Extensions.Diagnostics.Abstractions.dll
 C:\Users\TEST\QueueApp\bin\Debug\net10.0-windows\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\TEST\QueueApp\obj\Debug\net10.0-windows\QueueApp.sourcelink.json
