@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    
+    <!-- Aggressive fixes for .NET 10 Static Web Assets 404/JSON issues -->
+    <StaticWebAssetsEnabled>true</StaticWebAssetsEnabled>
+    <StaticWebAssetsFingerprinting>false</StaticWebAssetsFingerprinting>
+    <DisableStaticWebAssetsFingerprinting>true</DisableStaticWebAssetsFingerprinting>
+    <BlazorWebAssemblyEnableStaticWebAssetsFingerprinting>false</BlazorWebAssemblyEnableStaticWebAssetsFingerprinting>
+    <BlazorCacheBootResources>false</BlazorCacheBootResources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebView.WindowsForms" Version="10.0.0-preview.2.25163.2" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0-preview.2.25163.2" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Ensure wwwroot is explicitly tracked -->
+    <Content Update="wwwroot\**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,173 @@
+@page "/counter"
+@inject NavigationManager Nav
+@implements IDisposable
+@using QueueApp.Core
+@using QueueApp.Models
+
+@if (SessionState.CurrentUser == null)
+{
+    Nav.NavigateTo($"/login?returnUrl={Uri.EscapeDataString(Nav.Uri)}");
+}
+else
+{
+    <div class="max-w-7xl mx-auto py-8">
+        <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 p-8">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h2 class="text-3xl font-black text-slate-900 tracking-tight">Counter Dashboard</h2>
+                    <p class="text-slate-500 font-medium">Monitoring all stations</p>
+                </div>
+                <button @onclick="RefreshData" class="text-xs font-bold text-indigo-600 hover:underline uppercase">Refresh Status</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                @foreach (var counter in counters)
+                {
+                    var active = activeTickets.ContainsKey(counter.Id) ? activeTickets[counter.Id] : null;
+                    <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100 flex flex-col gap-4">
+                        <div class="flex justify-between items-start">
+                            <h4 class="font-black text-slate-900">@counter.CounterNumber</h4>
+                            <span class="text-xs font-bold text-slate-400 uppercase">@counter.StaffName</span>
+                        </div>
+                        
+                        <div class="flex-1 flex flex-col items-center justify-center py-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                            @if (active != null)
+                            {
+                                <span class="text-4xl font-black text-indigo-600">#@active.TicketNumber</span>
+                                <p class="text-xs text-slate-400 mt-1">@active.CustomerName</p>
+                                <button @onclick="() => MarkDone(active.Id, counter.Id)" class="mt-4 px-4 py-2 bg-green-600 text-white text-xs font-bold rounded-lg hover:bg-green-700">DONE</button>
+                            }
+                            else
+                            {
+                                <span class="text-sm text-slate-300 font-bold italic">Idle</span>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Waiting Queue (@waitingTickets.Count)</h3>
+                    <div class="space-y-3">
+                        @foreach (var ticket in waitingTickets)
+                        {
+                            <div class="flex items-center justify-between p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                                <span class="text-2xl font-black text-slate-900">#@ticket.TicketNumber</span>
+                                <div class="flex-1 px-6">
+                                    <p class="font-bold text-slate-700">@ticket.CustomerName</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <button @onclick="() => StartEdit(ticket)" class="px-3 py-1 bg-slate-100 text-slate-600 font-bold text-[10px] rounded-lg hover:bg-slate-200 transition-colors">EDIT</button>
+                                    <button @onclick="() => DeleteTicket(ticket)" class="px-3 py-1 bg-rose-50 text-rose-600 font-bold text-[10px] rounded-lg hover:bg-rose-100 transition-colors">DEL</button>
+                                    @foreach (var counter in counters.Where(c => !activeTickets.ContainsKey(c.Id) || activeTickets[c.Id] == null))
+                                    {
+                                        <button @onclick="() => CallTicket(ticket.Id, counter.Id)" class="px-3 py-1 bg-indigo-50 text-indigo-600 font-bold text-[10px] rounded-lg hover:bg-indigo-600 hover:text-white transition-colors">
+                                            C-@counter.CounterNumber
+                                        </button>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Served History (@servedTickets.Count)</h3>
+                    <div class="space-y-3">
+                        @foreach (var ticket in servedTickets.Take(10))
+                        {
+                            <div class="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-2xl">
+                                <span class="text-lg font-black text-slate-600">#@ticket.TicketNumber</span>
+                                <p class="text-sm font-bold text-slate-700">@ticket.CustomerName</p>
+                                <div class="flex gap-2">
+                                    <button @onclick="() => StartEdit(ticket)" class="text-[10px] font-bold text-indigo-600 underline">EDIT</button>
+                                    <button @onclick="() => DeleteTicket(ticket)" class="text-[10px] font-bold text-rose-600 underline">DEL</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    @if (editingTicket != null)
+    {
+        <div class="fixed inset-0 bg-black/50 flex items-center justify-center p-4">
+            <div class="bg-white p-8 rounded-3xl w-full max-w-sm">
+                <h3 class="font-black text-xl mb-6">Edit Ticket</h3>
+                <input @bind="editingName" class="w-full p-4 rounded-xl border mb-4" placeholder="Name" />
+                <input @bind="editingPhone" class="w-full p-4 rounded-xl border mb-6" placeholder="Phone" />
+                <div class="flex gap-4">
+                    <button @onclick="SaveEdit" class="flex-1 py-3 bg-indigo-600 text-white font-bold rounded-xl">SAVE</button>
+                    <button @onclick="() => editingTicket = null" class="flex-1 py-3 bg-slate-100 font-bold rounded-xl">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+@code {
+    private List<Counter> counters = new();
+    private List<Ticket> waitingTickets = new();
+    private List<Ticket> servedTickets = new();
+    private Dictionary<int, Ticket?> activeTickets = new();
+    private System.Threading.Timer? timer;
+    
+    private Ticket? editingTicket;
+    private string editingName = "";
+    private string editingPhone = "";
+
+    protected override void OnInitialized()
+    {
+        RefreshData();
+        timer = new System.Threading.Timer(_ => InvokeAsync(() => { RefreshData(); StateHasChanged(); }), null, 3000, 3000);
+    }
+
+    private void RefreshData()
+    {
+        counters = QueueManager.GetCounters();
+        waitingTickets = QueueManager.GetWaitingTickets();
+        servedTickets = QueueManager.GetServedTickets();
+        var calling = QueueManager.GetCallingTickets();
+        foreach(var c in counters) activeTickets[c.Id] = calling.FirstOrDefault(t => t.CounterId == c.Id);
+    }
+
+    private void CallTicket(int ticketId, int counterId)
+    {
+        QueueManager.CallTicket(ticketId, counterId);
+        RefreshData();
+    }
+
+    private void MarkDone(int ticketId, int counterId)
+    {
+        QueueManager.CompleteTicket(ticketId);
+        RefreshData();
+    }
+
+    private void StartEdit(Ticket ticket)
+    {
+        editingTicket = ticket;
+        editingName = ticket.CustomerName ?? "";
+        editingPhone = ticket.CustomerPhone ?? "";
+    }
+
+    private void SaveEdit()
+    {
+        if (editingTicket != null)
+        {
+            QueueManager.UpdateTicket(editingTicket.Id, editingName, editingPhone);
+            editingTicket = null;
+            RefreshData();
+        }
+    }
+
+    private void DeleteTicket(Ticket ticket)
+    {
+        QueueManager.DeleteTicket(ticket.Id);
+        RefreshData();
+    }
+
+    public void Dispose() => timer?.Dispose();
+}

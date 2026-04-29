@@ -1,0 +1,90 @@
+@page "/admin"
+@inject NavigationManager Nav
+@using QueueApp.Core
+@using QueueApp.Models
+
+@if (SessionState.CurrentUser == null || SessionState.CurrentUser.Role != UserRole.Admin)
+{
+    @if (SessionState.CurrentUser == null)
+    {
+        Nav.NavigateTo($"/login?returnUrl={Uri.EscapeDataString(Nav.Uri)}");
+    }
+    else
+    {
+        <div class="max-w-md mx-auto mt-20 p-8 bg-rose-50 border border-rose-200 rounded-3xl text-center">
+            <h2 class="text-rose-600 font-black text-xl mb-2">Access Denied</h2>
+            <p class="text-rose-800 text-sm">You do not have permission to view this page. Admin role required.</p>
+            <a href="/" class="mt-4 inline-block text-sm font-bold text-slate-600 underline">Back to Home</a>
+        </div>
+    }
+}
+else
+{
+    <div class="max-w-4xl mx-auto py-8">
+        <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 overflow-hidden">
+            <div class="bg-rose-600 p-8 flex justify-between items-center text-white">
+                <div>
+                    <h2 class="text-2xl font-black tracking-tight">System Administration</h2>
+                    <p class="text-rose-100 text-sm">Full database and user control</p>
+                </div>
+                <button @onclick="Logout" class="px-4 py-2 bg-rose-700 hover:bg-rose-800 rounded-xl text-xs font-bold uppercase transition-colors">Log Out</button>
+            </div>
+
+            <div class="p-10 space-y-10">
+                <section>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Counter Management</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        @foreach (var counter in counters)
+                        {
+                            <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+                                <h4 class="font-bold text-slate-900 mb-2">Counter @counter.CounterNumber</h4>
+                                <input @bind="counter.StaffName" type="text" class="w-full px-4 py-2 rounded-xl border border-slate-200 mb-2" placeholder="Staff Name" />
+                                <button @onclick="() => SaveStaff(counter)" class="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all">
+                                    SAVE
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Queue Management</h3>
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-bold text-slate-900">Reset All Tickets</h4>
+                            <p class="text-sm text-slate-500">Permanently delete all ticket history from the database.</p>
+                        </div>
+                        <button @onclick="ResetQueue" class="px-6 py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl shadow-lg shadow-rose-100 transition-all active:scale-95">
+                            RESET SYSTEM
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<Counter> counters = new();
+
+    protected override void OnInitialized()
+    {
+        counters = QueueManager.GetCounters();
+    }
+
+    private void SaveStaff(Counter counter)
+    {
+        QueueManager.UpdateCounterStaff(counter.Id, counter.StaffName ?? "");
+    }
+
+    private void ResetQueue()
+    {
+        QueueManager.ResetQueue();
+    }
+
+    private void Logout()
+    {
+        SessionState.CurrentUser = null;
+        Nav.NavigateTo("/");
+    }
+}

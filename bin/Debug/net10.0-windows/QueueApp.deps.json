@@ -1,0 +1,864 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "QueueApp/1.0.0": {
+        "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
+          "Microsoft.AspNetCore.Components.WebView.WindowsForms": "10.0.0-preview.2.25165.1",
+          "Microsoft.AspNetCore.WebUtilities": "9.0.0",
+          "Microsoft.Data.Sqlite": "10.0.7",
+          "Microsoft.Extensions.DependencyInjection": "10.0.0-preview.2.25163.2",
+          "Microsoft.Web.WebView2.Core": "1.0.2792.45",
+          "Microsoft.Web.WebView2.WinForms": "1.0.2792.45",
+          "Microsoft.Web.WebView2.Wpf": "1.0.2792.45"
+        },
+        "runtime": {
+          "QueueApp.dll": {}
+        }
+      },
+      "BCrypt.Net-Next/4.0.3": {
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.0.3.0"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authorization/10.0.0-preview.2.25164.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "10.0.0-preview.2.25164.1",
+          "Microsoft.Extensions.Diagnostics": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Options": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Authorization.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16401"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components/10.0.0-preview.2.25164.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "10.0.0-preview.2.25164.1"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Components.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16401"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.Forms/10.0.0-preview.2.25164.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "10.0.0-preview.2.25164.1"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Components.Forms.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16401"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.Web/10.0.0-preview.2.25164.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "10.0.0-preview.2.25164.1",
+          "Microsoft.AspNetCore.Components.Forms": "10.0.0-preview.2.25164.1",
+          "Microsoft.Extensions.DependencyInjection": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Primitives": "10.0.0-preview.2.25163.2",
+          "Microsoft.JSInterop": "10.0.0-preview.2.25164.1"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Components.Web.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16401"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebView/10.0.0-preview.2.25164.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "10.0.0-preview.2.25164.1",
+          "Microsoft.Extensions.Configuration.Binder": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Configuration.Json": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.FileProviders.Composite": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.FileProviders.Embedded": "10.0.0-preview.2.25164.1",
+          "Microsoft.Extensions.Logging": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Components.WebView.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16401"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebView.WindowsForms/10.0.0-preview.2.25165.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.WebView": "10.0.0-preview.2.25164.1",
+          "Microsoft.Web.WebView2": "1.0.2792.45"
+        },
+        "runtime": {
+          "lib/net10.0-windows7.0/Microsoft.AspNetCore.Components.WebView.WindowsForms.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16501"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/10.0.0-preview.2.25164.1": {
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Metadata.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16401"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.WebUtilities/9.0.0": {
+        "dependencies": {
+          "Microsoft.Net.Http.Headers": "9.0.0"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.WebUtilities.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52903"
+          }
+        }
+      },
+      "Microsoft.Data.Sqlite/10.0.7": {
+        "dependencies": {
+          "Microsoft.Data.Sqlite.Core": "10.0.7",
+          "SQLitePCLRaw.bundle_e_sqlite3": "2.1.11",
+          "SQLitePCLRaw.core": "2.1.11"
+        }
+      },
+      "Microsoft.Data.Sqlite.Core/10.0.7": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.1.11"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Data.Sqlite.dll": {
+            "assemblyVersion": "10.0.7.0",
+            "fileVersion": "10.0.726.21808"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Primitives": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.Binder.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.FileProviders.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.FileProviders.Physical": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Primitives": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Configuration.FileExtensions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.FileProviders.Abstractions": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.Json.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.0-preview.2.25163.2": {
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Diagnostics/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Diagnostics.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Diagnostics.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.Abstractions/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Options": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Abstractions/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Composite/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Primitives": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.FileProviders.Composite.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Embedded/10.0.0-preview.2.25164.1": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.FileProviders.Embedded.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16401"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Physical/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.FileSystemGlobbing": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Primitives": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.FileProviders.Physical.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileSystemGlobbing/10.0.0-preview.2.25163.2": {
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Options": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Logging.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Primitives": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Options.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/10.0.0-preview.2.25163.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Configuration.Binder": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Options": "10.0.0-preview.2.25163.2",
+          "Microsoft.Extensions.Primitives": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/10.0.0-preview.2.25163.2": {
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16302"
+          }
+        }
+      },
+      "Microsoft.JSInterop/10.0.0-preview.2.25164.1": {
+        "runtime": {
+          "lib/net10.0/Microsoft.JSInterop.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.16401"
+          }
+        }
+      },
+      "Microsoft.Net.Http.Headers/9.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "10.0.0-preview.2.25163.2"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Net.Http.Headers.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52903"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.2792.45": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/WebView2Loader.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "1.0.2792.45"
+          },
+          "runtimes/win-x64/native/WebView2Loader.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.0.2792.45"
+          },
+          "runtimes/win-x86/native/WebView2Loader.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.0.2792.45"
+          }
+        }
+      },
+      "SQLitePCLRaw.bundle_e_sqlite3/2.1.11": {
+        "dependencies": {
+          "SQLitePCLRaw.lib.e_sqlite3": "2.1.11",
+          "SQLitePCLRaw.provider.e_sqlite3": "2.1.11"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {
+            "assemblyVersion": "2.1.11.2622",
+            "fileVersion": "2.1.11.2622"
+          }
+        }
+      },
+      "SQLitePCLRaw.core/2.1.11": {
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {
+            "assemblyVersion": "2.1.11.2622",
+            "fileVersion": "2.1.11.2622"
+          }
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3/2.1.11": {
+        "runtimeTargets": {
+          "runtimes/browser-wasm/nativeassets/net9.0/e_sqlite3.a": {
+            "rid": "browser-wasm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm/native/libe_sqlite3.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libe_sqlite3.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-armel/native/libe_sqlite3.so": {
+            "rid": "linux-armel",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-mips64/native/libe_sqlite3.so": {
+            "rid": "linux-mips64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-arm/native/libe_sqlite3.so": {
+            "rid": "linux-musl-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-arm64/native/libe_sqlite3.so": {
+            "rid": "linux-musl-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-riscv64/native/libe_sqlite3.so": {
+            "rid": "linux-musl-riscv64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-s390x/native/libe_sqlite3.so": {
+            "rid": "linux-musl-s390x",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-ppc64le/native/libe_sqlite3.so": {
+            "rid": "linux-ppc64le",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-riscv64/native/libe_sqlite3.so": {
+            "rid": "linux-riscv64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-s390x/native/libe_sqlite3.so": {
+            "rid": "linux-s390x",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libe_sqlite3.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x86/native/libe_sqlite3.so": {
+            "rid": "linux-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib": {
+            "rid": "maccatalyst-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/maccatalyst-x64/native/libe_sqlite3.dylib": {
+            "rid": "maccatalyst-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/libe_sqlite3.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libe_sqlite3.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm/native/e_sqlite3.dll": {
+            "rid": "win-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/e_sqlite3.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/e_sqlite3.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/e_sqlite3.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.provider.e_sqlite3/2.1.11": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.1.11"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/SQLitePCLRaw.provider.e_sqlite3.dll": {
+            "assemblyVersion": "2.1.11.2622",
+            "fileVersion": "2.1.11.2622"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2.Core/1.0.2792.45": {
+        "runtime": {
+          "Microsoft.Web.WebView2.Core.dll": {
+            "assemblyVersion": "1.0.2792.45",
+            "fileVersion": "1.0.2792.45"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2.WinForms/1.0.2792.45": {
+        "runtime": {
+          "Microsoft.Web.WebView2.WinForms.dll": {
+            "assemblyVersion": "1.0.2792.45",
+            "fileVersion": "1.0.2792.45"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2.Wpf/1.0.2792.45": {
+        "runtime": {
+          "Microsoft.Web.WebView2.Wpf.dll": {
+            "assemblyVersion": "1.0.2792.45",
+            "fileVersion": "1.0.2792.45"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "QueueApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BCrypt.Net-Next/4.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "path": "bcrypt.net-next/4.0.3",
+      "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authorization/10.0.0-preview.2.25164.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ouyCmzXSUolMhdr8jcDPOuZ91GLfp5N1NNzMvl74pZNG9c0UnTKZM1otiDd1ytp4rGmWeyVHSC8ZFQgok7h8fQ==",
+      "path": "microsoft.aspnetcore.authorization/10.0.0-preview.2.25164.1",
+      "hashPath": "microsoft.aspnetcore.authorization.10.0.0-preview.2.25164.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components/10.0.0-preview.2.25164.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-se2ioJRZXMNiQcmSNJmVa63mSX4DB28VhTyc9/HhOg2xvcDp5Nmo7d1GGPQXxStcX+8FeATrewI/2w+TzGM+wg==",
+      "path": "microsoft.aspnetcore.components/10.0.0-preview.2.25164.1",
+      "hashPath": "microsoft.aspnetcore.components.10.0.0-preview.2.25164.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Forms/10.0.0-preview.2.25164.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5e2kd6/Hs5FARpPvrSJGhlkB8L0QHhB9N3GkMlz+c9yas3Om3Na8DTUSJ4x0gsFMc54di2gsSvpdn2nBOAzsDA==",
+      "path": "microsoft.aspnetcore.components.forms/10.0.0-preview.2.25164.1",
+      "hashPath": "microsoft.aspnetcore.components.forms.10.0.0-preview.2.25164.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Web/10.0.0-preview.2.25164.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-agxBeEdB6eVP0FNU0vzcVuLVk0Ly+gVAPSFNg0hcftuerjluuOl6L+CpmHhn812oWeM6feMpHf6FVBzKM9gQOg==",
+      "path": "microsoft.aspnetcore.components.web/10.0.0-preview.2.25164.1",
+      "hashPath": "microsoft.aspnetcore.components.web.10.0.0-preview.2.25164.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.WebView/10.0.0-preview.2.25164.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CB7tURzWNQtQmpOrXov4n+qcbZpg5CfSSUj1VsDAjUts85E37xPRcNtpGUlu5BZocryhFm2Rq2D3Pdfk5wpwWQ==",
+      "path": "microsoft.aspnetcore.components.webview/10.0.0-preview.2.25164.1",
+      "hashPath": "microsoft.aspnetcore.components.webview.10.0.0-preview.2.25164.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.WebView.WindowsForms/10.0.0-preview.2.25165.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZQ9qOnBr+lvZMcO47BLOGApy0cMs8NuBtsbvTGDFUUDESGAcqBXDY43VgTJ+HzdrSlPYXgvvpwv4CM4+S7PLXA==",
+      "path": "microsoft.aspnetcore.components.webview.windowsforms/10.0.0-preview.2.25165.1",
+      "hashPath": "microsoft.aspnetcore.components.webview.windowsforms.10.0.0-preview.2.25165.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Metadata/10.0.0-preview.2.25164.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3iXEZHoZGMqGkiSumnyWpAiH0dqqgyS1w5kNNkQkfHZ3Al40AdIegVzgrRc/hmTjdTg7SFth+p6tEQ+lERfllg==",
+      "path": "microsoft.aspnetcore.metadata/10.0.0-preview.2.25164.1",
+      "hashPath": "microsoft.aspnetcore.metadata.10.0.0-preview.2.25164.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.WebUtilities/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nUtmKeQ2cBiiZNYkl4KpQO8C2YP/EAc/r6PymeaRnO5AxBtOs6GkWXwZh+65vjfjXtlIxZeexGzXA3vy7+G7Vw==",
+      "path": "microsoft.aspnetcore.webutilities/9.0.0",
+      "hashPath": "microsoft.aspnetcore.webutilities.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.Data.Sqlite/10.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DZ6G2QuyPrsh5VS+wfiZbNBtYT6p+CkxXjD0aZHF04xso7QsG/uk0JpG30hzYlK6u/wtTzta1Dqfgbc/Sl2sDA==",
+      "path": "microsoft.data.sqlite/10.0.7",
+      "hashPath": "microsoft.data.sqlite.10.0.7.nupkg.sha512"
+    },
+    "Microsoft.Data.Sqlite.Core/10.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xVrtBg3M1wJlBDkoT0dXEYB/wSc8bIHJPYtw/bu1AqpWgF79uPSs87DAhERR/Ilumre6TKZa1cjMg3VUUObVLA==",
+      "path": "microsoft.data.sqlite.core/10.0.7",
+      "hashPath": "microsoft.data.sqlite.core.10.0.7.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gQCGa4VOdiyHFWxaOG4FZqvg0cPBQxgtxNf2ACrubNg0LgtskU8oTxYT/umhXyCsuuokNAMxiYPMs66CZOh1wA==",
+      "path": "microsoft.extensions.configuration/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.configuration.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OkGafDrJfsDQpANeL1LX1g8oWdcKO+eAjPguFW/XmoeLqhe3O5b45IbW/U9AQrUDtEv3Qz7fTeWl7S5Fmhwmpw==",
+      "path": "microsoft.extensions.configuration.abstractions/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.configuration.abstractions.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Binder/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-30GY/gmYWuEO2S+JefnVOOHECpM9PuTRafBmMoAVYuPXzVdDu66IEZH4+xhdkHL4CgA8bS/BUDhrZswDMtfTdw==",
+      "path": "microsoft.extensions.configuration.binder/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.configuration.binder.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.FileExtensions/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EgF4d5/12q4Udp1Zz3eOtembCaBamk5Pg11ef2dAl96l6/GrE3AvolHXbsehn/67pz5m1XCu648r6Ge3Sor4NQ==",
+      "path": "microsoft.extensions.configuration.fileextensions/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.configuration.fileextensions.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Json/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-es5BGCh/hBfMjBoQ6t1J7MrK/QUVLaSadlDLo3MR3p26RmghwHs2gLGxDFpZi6FZ5THDIlIEjU/r3DedcQ7KoQ==",
+      "path": "microsoft.extensions.configuration.json/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.configuration.json.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-96FojyfY5o1DM4eNgoor60KLrYUOfGhYvyfYW/ShosdmBdhUWjARaEP+6uFgLnF3wHQHFD1OJme9p0Hm8sxQrg==",
+      "path": "microsoft.extensions.dependencyinjection/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ntG9Kn3eOoJMfBoOIYZOCp86MBxmKmeluoTisAKdmhyJPJKwM5+C2cHFPPcXXW5IYHFh/j4helQ1r22XtzV/oA==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cy0qP6FXbodmaBBW5/IpcEMnMBPZI7+FbvTx7mce2U1vhCwiwLdPLvSNt3JRrjY8BrLahZgvDHCwV3EVw2X1lA==",
+      "path": "microsoft.extensions.diagnostics/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.diagnostics.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics.Abstractions/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cLBhuPRPJk9+DrZYXsJsv+0pf35oIHkbzF5jiL0MmQF8mSiQARbvBmjFzlOISaVIUvbYQqNi+Cc5EWrZjzmpbA==",
+      "path": "microsoft.extensions.diagnostics.abstractions/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.diagnostics.abstractions.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Abstractions/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RsoUxVifhDW8782vhGS/ZDG+pBAW7KAbj3ZGxErCYvoDqNHN+/KkJ6jOZ11W2RbzhTEoW8GEPLzZFOEAzp5W0Q==",
+      "path": "microsoft.extensions.fileproviders.abstractions/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Composite/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OfAexThbxlkGHAuCP5o05m+Umlakm9WQjntQ3dM8e+piiyh+zXvT11dm0lloTEFcvmLJv3WSrVwQyrLgACYbUw==",
+      "path": "microsoft.extensions.fileproviders.composite/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.fileproviders.composite.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Embedded/10.0.0-preview.2.25164.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N5bUMTa2qUUAQ06aS9KNQZon5HOhUMcXXmJFGqPC/d2KWHK0TnrG56Hb20nEJ9QBhnBOXnTSrGO2VmlLIq6/Zw==",
+      "path": "microsoft.extensions.fileproviders.embedded/10.0.0-preview.2.25164.1",
+      "hashPath": "microsoft.extensions.fileproviders.embedded.10.0.0-preview.2.25164.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Physical/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VEcIc5J+NOJZxtWyFRgkTcG9xRwLn01gpZkLg221aisCL9HUnd2CJA2mmxM0GshPI8Upu59ZhZNvaCMlMU44EA==",
+      "path": "microsoft.extensions.fileproviders.physical/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.fileproviders.physical.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileSystemGlobbing/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WjxoxK/qxR7684lNN7U9ZqTTUPeyWMRqQi5ZjXoynrwk4knylY2ba6zxcT10wDMt/rDefoQNtKXAnV19HaZuzQ==",
+      "path": "microsoft.extensions.filesystemglobbing/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.filesystemglobbing.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WLwsn8YsRw0LlFJtSV17311MzrosOEi6oo+Uazvg0lC/z0A0p/7YaYShykqXb0TTC7sKu+HOzo5GoL3QzyubGw==",
+      "path": "microsoft.extensions.logging/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.logging.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MeBgGWgPEbW7iSnOnr58+cXRoJ+JkTvLQCipzZa/p+4FDvHH3TNlmkGhMrNgMo5LuYrQm/2EdS2KeFyJ5JNS0A==",
+      "path": "microsoft.extensions.logging.abstractions/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.logging.abstractions.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CbGoSqTgTqqa37yqaM3Dw15Ms19FONa4gln+2MnZnRewzrqXk2/hEsE+mKqM+tufJM++hZQDHuwpsHXokx+EUQ==",
+      "path": "microsoft.extensions.options/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.options.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MM/3N9zSPt2dKkA2Ku69A6SrUJfbR6BGjFon+NPLVWQUUY1uSiPej9mRrTU7a/qNV5FtoBOP9km8FoxfJSPapA==",
+      "path": "microsoft.extensions.options.configurationextensions/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.options.configurationextensions.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/10.0.0-preview.2.25163.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-x+QrguTaz5tyltxgKFUdACwodInudwiBw1nz6Wh3LOxXBdYzQ4UIbs6A674QaL8swaOK1ZqFkhSQ/l5x8nXrtw==",
+      "path": "microsoft.extensions.primitives/10.0.0-preview.2.25163.2",
+      "hashPath": "microsoft.extensions.primitives.10.0.0-preview.2.25163.2.nupkg.sha512"
+    },
+    "Microsoft.JSInterop/10.0.0-preview.2.25164.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dAfpxeBBYBAcy7BumGHdvaxz9Uh8q48x08Drc3po2I/rG02gae0rirWbePTo0HeWy/aPOlP/jAY+qiif/wsoxw==",
+      "path": "microsoft.jsinterop/10.0.0-preview.2.25164.1",
+      "hashPath": "microsoft.jsinterop.10.0.0-preview.2.25164.1.nupkg.sha512"
+    },
+    "Microsoft.Net.Http.Headers/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Haa8791nKzjZtck7KOzM4hgoyvwBfVzkyTLdmEVRm3FdHB1iahQZNiou17hSF5PlOQT0hr4BAQYeZYvfs4BZMQ==",
+      "path": "microsoft.net.http.headers/9.0.0",
+      "hashPath": "microsoft.net.http.headers.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.Web.WebView2/1.0.2792.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KOlLJSq70OySfU8mdhWdh9iOyApazWsIb6CmSz+YTJ5MmwLcsCLMW0qemORo7Si3A7VhLDIH3jwpMhPxodfkuA==",
+      "path": "microsoft.web.webview2/1.0.2792.45",
+      "hashPath": "microsoft.web.webview2.1.0.2792.45.nupkg.sha512"
+    },
+    "SQLitePCLRaw.bundle_e_sqlite3/2.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DC4nA7yWnf4UZdgJDF+9Mus4/cb0Y3Sfgi3gDnAoKNAIBwzkskNAbNbyu+u4atT0ruVlZNJfwZmwiEwE5oz9LQ==",
+      "path": "sqlitepclraw.bundle_e_sqlite3/2.1.11",
+      "hashPath": "sqlitepclraw.bundle_e_sqlite3.2.1.11.nupkg.sha512"
+    },
+    "SQLitePCLRaw.core/2.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PK0GLFkfhZzLQeR3PJf71FmhtHox+U3vcY6ZtswoMjrefkB9k6ErNJEnwXqc5KgXDSjige2XXrezqS39gkpQKA==",
+      "path": "sqlitepclraw.core/2.1.11",
+      "hashPath": "sqlitepclraw.core.2.1.11.nupkg.sha512"
+    },
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ev2ytaXiOlWZ4b3R67GZBsemTINslLD1DCJr2xiacpn4tbapu0Q4dHEzSvZSMnVWeE5nlObU3VZN2p81q3XOYQ==",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.1.11",
+      "hashPath": "sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512"
+    },
+    "SQLitePCLRaw.provider.e_sqlite3/2.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y/0ZkR+r0Cg3DQFuCl1RBnv/tmxpIZRU3HUvelPw6MVaKHwYYR8YNvgs0vuNuXCMvlyJ+Fh88U1D4tah1tt6qw==",
+      "path": "sqlitepclraw.provider.e_sqlite3/2.1.11",
+      "hashPath": "sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512"
+    },
+    "Microsoft.Web.WebView2.Core/1.0.2792.45": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Web.WebView2.WinForms/1.0.2792.45": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Web.WebView2.Wpf/1.0.2792.45": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

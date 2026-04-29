@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\TEST\\.nuget\\packages\\microsoft.aspnetcore.components.webview\\10.0.0-preview.2.25164.1\\staticwebassets\\blazor.modules.json",
+      "PackagePath": "staticwebassets\\_framework\\blazor.modules.json"
+    },
+    {
+      "Id": "C:\\Users\\TEST\\.nuget\\packages\\microsoft.aspnetcore.components.webview\\10.0.0-preview.2.25164.1\\staticwebassets\\blazor.webview.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webview.js"
+    },
+    {
+      "Id": "C:\\Users\\TEST\\QueueApp\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\TEST\\QueueApp\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net10.0-windows\\staticwebassets\\msbuild.QueueApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net10.0-windows\\staticwebassets\\msbuild.QueueApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net10.0-windows\\staticwebassets\\msbuild.build.QueueApp.props",
+      "PackagePath": "build\\QueueApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net10.0-windows\\staticwebassets\\msbuild.buildMultiTargeting.QueueApp.props",
+      "PackagePath": "buildMultiTargeting\\QueueApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net10.0-windows\\staticwebassets\\msbuild.buildTransitive.QueueApp.props",
+      "PackagePath": "buildTransitive\\QueueApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

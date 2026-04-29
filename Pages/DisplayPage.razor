@@ -1,0 +1,109 @@
+@page "/display"
+@implements IDisposable
+@using QueueApp.Core
+@using QueueApp.Models
+
+<div class="min-h-screen bg-slate-50 text-slate-800 p-4 md:p-8">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold text-slate-900">Service Status</h1>
+                <p class="text-sm text-slate-500">Real-time counter and ticket overview</p>
+            </div>
+            <div class="text-left md:text-right">
+                <p class="text-2xl font-bold text-indigo-600">@DateTime.Now.ToString("HH:mm")</p>
+                <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">@DateTime.Now.ToString("dd MMMM yyyy")</p>
+            </div>
+        </header>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Now Calling -->
+            <div class="lg:col-span-2 space-y-4">
+                <h2 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Currently Calling</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    @if (callingTickets.Any())
+                    {
+                        @foreach (var ticket in callingTickets.Take(4))
+                        {
+                            <div class="flex items-center justify-between p-5 bg-white border border-slate-200 rounded-2xl shadow-sm">
+                                <div>
+                                    <p class="text-[10px] font-bold text-indigo-500 uppercase tracking-widest mb-1">Ticket</p>
+                                    <span class="text-3xl font-black text-slate-900 tracking-tight">#@ticket.TicketNumber</span>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Counter</p>
+                                    <span class="px-4 py-1 bg-slate-100 rounded-lg text-lg font-black text-slate-900">C-@(GetCounterNum(ticket.CounterId))</span>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="col-span-full p-10 text-center bg-white rounded-2xl border border-slate-200 text-slate-400 font-bold text-sm">
+                            No tickets currently calling
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Staff Status -->
+            <div class="lg:col-span-1">
+                <h2 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Staff & Status</h2>
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-50 border-b border-slate-100">
+                            <tr>
+                                <th class="px-4 py-3 font-bold text-slate-500 uppercase">Station</th>
+                                <th class="px-4 py-3 font-bold text-slate-500 uppercase">Staff</th>
+                                <th class="px-4 py-3 font-bold text-slate-500 uppercase text-right">Serving</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            @foreach (var counter in counters)
+                            {
+                                <tr>
+                                    <td class="px-4 py-4 font-bold text-slate-700">C-@counter.CounterNumber</td>
+                                    <td class="px-4 py-4 text-slate-600 truncate max-w-[80px]">@(string.IsNullOrWhiteSpace(counter.StaffName) ? "Unassigned" : counter.StaffName)</td>
+                                    <td class="px-4 py-4 text-right">
+                                        @{
+                                            var last = callingTickets.FirstOrDefault(t => t.CounterId == counter.Id);
+                                            if (last != null) {
+                                                <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 rounded text-xs font-black">#@last.TicketNumber</span>
+                                            } else {
+                                                <span class="text-slate-300 font-bold text-[10px] uppercase">Idle</span>
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Ticket> callingTickets = new();
+    private List<Counter> counters = new();
+    private System.Threading.Timer? timer;
+
+    protected override void OnInitialized()
+    {
+        RefreshData();
+        timer = new System.Threading.Timer(_ => InvokeAsync(() => { RefreshData(); StateHasChanged(); }), null, 3000, 3000);
+    }
+
+    private void RefreshData()
+    {
+        callingTickets = QueueManager.GetCallingTickets();
+        counters = QueueManager.GetCounters();
+    }
+
+    private int GetCounterNum(int? id) => counters.FirstOrDefault(c => c.Id == id)?.CounterNumber ?? 0;
+
+    public void Dispose() => timer?.Dispose();
+}
