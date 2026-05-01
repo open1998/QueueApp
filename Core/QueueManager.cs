@@ -11,7 +11,7 @@ public static class QueueManager
         using var connection = DatabaseContext.GetConnection();
         
         var lastNumCmd = connection.CreateCommand();
-        lastNumCmd.CommandText = "SELECT MAX(TicketNumber) FROM Tickets WHERE date(CreatedAt) = date('now')";
+        lastNumCmd.CommandText = "SELECT MAX(TicketNumber) FROM Tickets";
         var result = lastNumCmd.ExecuteScalar();
         int nextNumber = (result == DBNull.Value || result == null) ? 1001 : Convert.ToInt32(result) + 1;
 

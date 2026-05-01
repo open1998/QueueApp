@@ -12,12 +12,12 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>kpsxk1doah</Fingerprint>
-      <Integrity>aOgUOgPC+BCcrOw48ZF1BF8OxvhIkf9LJ5ipGNwJldE=</Integrity>
+      <Fingerprint>aif3ynz508</Fingerprint>
+      <Integrity>vgCbGHXTZb+yJMO0SLZRhkmrpjc1iidhUTCLIkr0NfQ=</Integrity>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <FileLength>129</FileLength>
-      <LastWriteTime>Tue, 28 Apr 2026 12:43:34 GMT</LastWriteTime>
+      <FileLength>117</FileLength>
+      <LastWriteTime>Fri, 01 May 2026 20:17:30 GMT</LastWriteTime>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\app.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))">
@@ -32,12 +32,12 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>g070a098x8</Fingerprint>
-      <Integrity>gAKlfvB66BnfrGoF4odd/kvqscB0tgORiLGcwquGLNk=</Integrity>
+      <Fingerprint>16s8sq43ol</Fingerprint>
+      <Integrity>mYR71XDGIYtWY5gjakIFp/5EEuZ0a+sfOIz3g18z/So=</Integrity>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <FileLength>1753</FileLength>
-      <LastWriteTime>Tue, 28 Apr 2026 14:28:03 GMT</LastWriteTime>
+      <FileLength>1707</FileLength>
+      <LastWriteTime>Fri, 01 May 2026 20:17:30 GMT</LastWriteTime>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\_framework\blazor.modules.json'))">
